@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pass phrase by Venkata Krishna Reddy Katreddy</title>
+</head>
+
+<body>
+
+    <h2>Getting input</h2>
+
+    <form>
+        <label for="form1_age">Enter the secret phrase </label>
+        <input type="password" id="form1_age" name="form1_age" min=10 max=50 step=2 value="let me in"> <br>
+
+        <label for="form1_nick">Enter a phrase </label>
+        <input type="text" id="form1_nick" name="form1_nick" autofocus> <br>
+
+        <input type="button" onclick="processPhrase()" value="Check the phrase">
+    </form>
+
+
+    <div class="container borders">
+        <p id="result">This text will be replaced </p>
+    </div>
+
+    <script>
+        let correct = 0;
+        let wrong = 0;
+        function processPhrase() {
+            console.log("Getting form values")
+            age = document.getElementById("form1_age").value
+            nick = document.getElementById("form1_nick").value
+            // confirmed = confirm("Are these the values? " + age + " and " + nick)
+            
+            
+            out = document.getElementById("result")
+            if (age==nick) {
+                alert("Access allowed")
+                correct = correct+1
+                out.innerHTML = "correct : "+correct+"  "+" wrong : "+wrong
+                
+            } else {
+                alert("Access denied")
+                wrong = wrong+1
+                out.innerHTML = "correct : "+correct+" wrong : "+wrong
+            }
+        }
+    </script>
+
+</body>
+
+</html>
