@@ -27,10 +27,12 @@
         <img src="./images/kangaroo.jpg" alt="Kangaroo" id="image" height="200" width="200" onclick="newImage()">
     </div>
 
-    
+
     <script>
         let correct = 0;
         let wrong = 0;
+        var cntNew = 0;
+        var cntPast = 0;
         function processPhrase() {
             console.log("Getting form values")
             age = document.getElementById("form1_age").value
@@ -38,40 +40,53 @@
             // confirmed = confirm("Are these the values? " + age + " and " + nick)
             out = document.getElementById("result")
             if (age == nick) {
-                alert("Access allowed")
+                cntNew = 0;
                 correct = correct + 1
                 out.innerHTML = "correct : " + correct + " wrong : " + wrong
+                alert("Access allowed")
 
             } else {
-                alert("Access denied")
+                cntNew = cntNew + 1;
                 wrong = wrong + 1
                 out.innerHTML = "correct : " + correct + " wrong : " + wrong
+                alert("Access denied")
+                if (cntNew >= 3) {
+                    if (wrong >= 3) {
+                        incorrectPassphrase()
+                    }
+                }
             }
         }
 
-        let usingImage = 1;
-        function newImage() {
-            image = document.getElementById("image")
-            switch (usingImage) {
-                case 1:
-                    image.src = "./images/kangaroo.jpg"
-                    usingImage = usingImage + 1
-                    break
-                case 2:
-                    image.src = "Images/alligator1.jpg"
-                    usingImage = usingImage + 1
-                    break
-                case 3:
-                    image.src = "Images/turtle1.jpg"
-                    usingImage = usingImage + 1
-                    break
-                default:
-                    break
+
+            function incorrectPassphrase() {
+                alert("account locked")
             }
-        }   
+
+
+            let usingImage = 1;
+            function newImage() {
+                image = document.getElementById("image")
+                switch (usingImage) {
+                    case 1:
+                        image.src = "./images/kangaroo.jpg"
+                        usingImage = usingImage + 1
+                        break
+                    case 2:
+                        image.src = "Images/alligator1.jpg"
+                        usingImage = usingImage + 1
+                        break
+                    case 3:
+                        image.src = "Images/turtle1.jpg"
+                        usingImage = usingImage + 1
+                        break
+                    default:
+                        break
+                }
+            }
     </script>
 
-    
+
 
 
 
