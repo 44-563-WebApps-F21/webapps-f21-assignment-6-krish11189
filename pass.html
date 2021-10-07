@@ -27,76 +27,7 @@
         <img src="./images/kangaroo.jpg" alt="Kangaroo" id="image" height="200" width="200" onclick="newImage()">
     </div>
 
-    <div class="container border bg-info">
-        <form>
-            <div class="form-group row">
-                <label for="first_value" class="col-sm-2 col-form-label">Enter a base </label>
-                <input type="number" class="col-sm-2 form-control" id="first_value" name="first_value" value=10> <br>
-            </div>
-            <div class="form-group row">
-                <label for="second_value" class="col-sm-2 col-form-label">Enter an exponent </label>
-                <input type="number" class="col-sm-2 form-control" id="second_value" name="second_value" value=2> <br>
-            </div>
-            <input type="button" class="col-sm-2 btn btn-primary" onclick="powers()" value="compute">
-        </form>
-    </div>
-    <div class="container border bg-secondary">
-        <p id="result1">This text will be replaced </p>
-    </div>
-
-    <div class="container border bg-success">
-        <form>
-            <input type="radio" id="add" name="arith_oper" onclick="processRadio()">
-            <label for="add">+</label><br>
-            <input type="radio" id="minus" name="arith_oper" onclick="processRadio()">
-            <label for="minus">-</label><br>
-            <input type="radio" id="multiply" name="arith_oper" onclick="processRadio()">
-            <label for="multiply">*</label><br>
-            <input type="radio" id="devide" name="arith_oper" onclick="processRadio()">
-            <label for="devide">/</label><br>
-        </form>
-    </div>
-    <div class="container border bg-secondary">
-        <p id="result2">Results of Radio buttons will be shown here</p>
-    </div>    
     
-    
-    <h1>CAR</h1>
-
-    <div class="container border bg-info" style="color:black">
-        <form>
-            <input type="checkbox" id="check_electric" name="check_electric" value="electric">
-            <label for="check_electric" class="">electric </label><br>
-
-            <input type="checkbox" id="check_ac" name="check_ac" value="ac">
-            <label for="check_ac">ac </label><br>
-
-            <input type="checkbox" id="check_gps" name="check_gps" value="gps">
-            <label for="check_gps">gps </label><br>
-
-            <input type="button" class="col-sm-3 btn-primary" onclick="orderCar()" value="Order a Car">
-            <br>
-        </form>
-    </div>
-
-    <div class="container border bg-primary">
-        <form>
-            <div class="form-group row">
-                <label for="form_property" class="col-sm-2 col-form-label">Enter a property</label>
-                <input type="text" class="col-sm-4 form-control" id="form_property" name="form_property" value="color"><br>
-            </div>
-            <div class="form-group row">
-                <label for="form_value" class="col-sm-2 col-form-label">Enter a value</label>
-                <input type="text" class="col-sm-4 form-control" id="form_value" name="form_value"><br>
-            </div>
-            <input type="button" class="col-sm-3 btn-primary" onclick="updateCar()" value="Update the Car">
-        </form>
-    </div>
-
-    <div class="container border bg-secondary">
-        <p id="result3">This text will be replaced </p>
-    </div>
-
     <script>
         let correct = 0;
         let wrong = 0;
@@ -137,73 +68,7 @@
                 default:
                     break
             }
-        }
-
-        function powers() {
-            console.log("Getting form values")
-            base = document.getElementById("first_value").value
-            exponent = document.getElementById("second_value").value
-
-            let result = ""
-
-            for (first = 1; first <= exponent; first++) {
-                result = result + " " +
-                    Math.pow(base, first)
-
-            }
-            document.getElementById("result1").innerHTML = "powers of " + base + " are: " + result
-        }
-
-        function processRadio() {
-            base = document.getElementById("first_value").value
-            exponent = document.getElementById("second_value").value
-            result = 0
-            text = ""
-            if (document.getElementById("add").checked == true) {
-                result = +base + +exponent
-                text = "sum of " + base + " and " + exponent + " is " + result
-            } else if (document.getElementById("minus").checked == true) {
-                result = base - exponent
-                text = "Difference of " + base + " and " + exponent + " is " + result
-            } else if (document.getElementById("multiply").checked == true) {
-                result = base * exponent
-                text = "Product of " + base + " and " + exponent + " is " + result
-            } else if (document.getElementById("devide").checked = true) {
-                result = base / exponent
-                text = "Division of " + base + " and " + exponent + " is " + result
-            }
-            document.getElementById("result2").innerHTML = text
-        }
-
-
-        var my_car = {}
-        function orderCar() {
-            my_car = {}
-            if (document.getElementById("check_electric").checked == true)
-                my_car['electric'] = 'true'
-            else
-                my_car['electric'] = 'false'
-
-            if (document.getElementById("check_ac").checked == true)
-                my_car['ac'] = 'true'
-            else
-                my_car['ac'] = 'false'
-
-            if (document.getElementById("check_gps").checked == true)
-                my_car['gps'] = 'true'
-            else
-                my_car['gps'] = 'false'
-            document.getElementById("result").innerHTML = JSON.stringify(my_car)
-            console.log(my_car)
-        }
-
-        function updateCar() {
-            form_property = document.getElementById("form_property").value
-            form_value = document.getElementById("form_value").value
-            my_car[form_property] = form_value
-            document.getElementById("result3").innerHTML = JSON.stringify(my_car)
-            console.log(my_car)
-        }
+        }   
     </script>
 
     
