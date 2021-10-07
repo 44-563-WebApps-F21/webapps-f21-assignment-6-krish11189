@@ -24,7 +24,7 @@
 
 
     <div class="container">
-        <img src="./images/kangaroo.jpg" id="image" height="200" width="200" onclick="newImage()">
+        <img src="./images/kangaroo.jpg" alt="Kangaroo" id="image" height="200" width="200" onclick="newImage()">
     </div>
 
     <div class="container border bg-info">
@@ -58,7 +58,44 @@
     </div>
     <div class="container border bg-secondary">
         <p id="result2">Results of Radio buttons will be shown here</p>
-    </div>      
+    </div>    
+    
+    
+    <h1>CAR</h1>
+
+    <div class="container border bg-info" style="color:black">
+        <form>
+            <input type="checkbox" id="check_electric" name="check_electric" value="electric">
+            <label for="check_electric" class="">electric </label><br>
+
+            <input type="checkbox" id="check_ac" name="check_ac" value="ac">
+            <label for="check_ac">ac </label><br>
+
+            <input type="checkbox" id="check_gps" name="check_gps" value="gps">
+            <label for="check_gps">gps </label><br>
+
+            <input type="button" class="col-sm-3 btn-primary" onclick="orderCar()" value="Order a Car">
+            <br>
+        </form>
+    </div>
+
+    <div class="container border bg-primary">
+        <form>
+            <div class="form-group row">
+                <label for="form_property" class="col-sm-2 col-form-label">Enter a property</label>
+                <input type="text" class="col-sm-4 form-control" id="form_property" name="form_property" value="color"><br>
+            </div>
+            <div class="form-group row">
+                <label for="form_value" class="col-sm-2 col-form-label">Enter a value</label>
+                <input type="text" class="col-sm-4 form-control" id="form_value" name="form_value"><br>
+            </div>
+            <input type="button" class="col-sm-3 btn-primary" onclick="updateCar()" value="Update the Car">
+        </form>
+    </div>
+
+    <div class="container border bg-secondary">
+        <p id="result3">This text will be replaced </p>
+    </div>
 
     <script>
         let correct = 0;
@@ -68,8 +105,6 @@
             age = document.getElementById("form1_age").value
             nick = document.getElementById("form1_nick").value
             // confirmed = confirm("Are these the values? " + age + " and " + nick)
-
-
             out = document.getElementById("result")
             if (age == nick) {
                 alert("Access allowed")
@@ -138,6 +173,36 @@
                 text = "Division of " + base + " and " + exponent + " is " + result
             }
             document.getElementById("result2").innerHTML = text
+        }
+
+
+        var my_car = {}
+        function orderCar() {
+            my_car = {}
+            if (document.getElementById("check_electric").checked == true)
+                my_car['electric'] = 'true'
+            else
+                my_car['electric'] = 'false'
+
+            if (document.getElementById("check_ac").checked == true)
+                my_car['ac'] = 'true'
+            else
+                my_car['ac'] = 'false'
+
+            if (document.getElementById("check_gps").checked == true)
+                my_car['gps'] = 'true'
+            else
+                my_car['gps'] = 'false'
+            document.getElementById("result").innerHTML = JSON.stringify(my_car)
+            console.log(my_car)
+        }
+
+        function updateCar() {
+            form_property = document.getElementById("form_property").value
+            form_value = document.getElementById("form_value").value
+            my_car[form_property] = form_value
+            document.getElementById("result3").innerHTML = JSON.stringify(my_car)
+            console.log(my_car)
         }
     </script>
 
