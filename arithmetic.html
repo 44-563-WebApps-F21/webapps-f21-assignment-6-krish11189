@@ -22,13 +22,13 @@
 
     <h1>Venkata Krishna Reddy Katreddy computes</h1>
 
-    <div class="container border bg-info">
+    <div class="container border">
         <form>
-            <div class="form-group row">
+            <div class="row">
                 <label for="first_value" class="col-sm-2 col-form-label">Enter a base </label>
                 <input type="number" class="col-sm-2 form-control" id="first_value" name="first_value" value=10> <br>
             </div>
-            <div class="form-group row">
+            <div class="row">
                 <label for="second_value" class="col-sm-2 col-form-label">Enter an exponent </label>
                 <input type="number" class="col-sm-2 form-control" id="second_value" name="second_value" value=2> <br>
             </div>
@@ -40,19 +40,19 @@
     </div>
 
 
-    <div class="container border bg-success">
+    <div class="container border">
         <form>
-            <input type="radio" id="add" name="arith_oper" onclick="processRadio()">
+            <input type="radio" id="add" name="oper" onclick="processRadio()">
             <label for="add">+</label><br>
-            <input type="radio" id="minus" name="arith_oper" onclick="processRadio()">
+            <input type="radio" id="minus" name="oper" onclick="processRadio()">
             <label for="minus">-</label><br>
-            <input type="radio" id="multiply" name="arith_oper" onclick="processRadio()">
+            <input type="radio" id="multiply" name="oper" onclick="processRadio()">
             <label for="multiply">*</label><br>
-            <input type="radio" id="devide" name="arith_oper" onclick="processRadio()">
+            <input type="radio" id="devide" name="oper" onclick="processRadio()">
             <label for="devide">/</label><br>
         </form>
     </div>
-    <div class="container border bg-secondary">
+    <div class="container border bg-primary">
         <p id="result2">Results of Radio buttons will be shown here</p>
     </div>
 

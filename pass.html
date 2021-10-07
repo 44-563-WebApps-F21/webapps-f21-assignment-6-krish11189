@@ -21,11 +21,11 @@
     <h2>Getting input</h2>
 
     <form>
-        <label for="form1_age">Enter the secret phrase</label>
-        <input type="password" id="form1_age" name="form1_age" min=10 max=50 step=2 value="let me in"> <br>
+        <label for="phrase">Enter the secret phrase</label>
+        <input type="password" id="phrase" name="phrase" min=10 max=50 step=2 value="let me in"> <br>
 
-        <label for="form1_nick">Enter a phrase</label>
-        <input type="text" id="form1_nick" name="form1_nick" autofocus> <br>
+        <label for="match">Enter a phrase</label>
+        <input type="text" id="match" name="match" autofocus> <br>
 
         <input type="button" onclick="processPhrase()" value="Check the phrase">
     </form>
@@ -43,12 +43,10 @@
         let correct = 0;
         let wrong = 0;
         var cntNew = 0;
-        var cntPast = 0;
         function processPhrase() {
             console.log("Getting form values")
-            age = document.getElementById("form1_age").value
-            nick = document.getElementById("form1_nick").value
-            // confirmed = confirm("Are these the values? " + age + " and " + nick)
+            age = document.getElementById("phrase").value
+            nick = document.getElementById("match").value
             out = document.getElementById("result")
             if (age == nick) {
                 cntNew = 0;
@@ -70,31 +68,31 @@
         }
 
 
-            function incorrectPassphrase() {
-                alert("account locked")
-            }
+        function incorrectPassphrase() {
+            alert("account locked")
+        }
 
 
-            let usingImage = 1;
-            function newImage() {
-                image = document.getElementById("image")
-                switch (usingImage) {
-                    case 1:
-                        image.src = "./images/kangaroo.jpg"
-                        usingImage = usingImage + 1
-                        break
-                    case 2:
-                        image.src = "Images/alligator1.jpg"
-                        usingImage = usingImage + 1
-                        break
-                    case 3:
-                        image.src = "Images/turtle1.jpg"
-                        usingImage = usingImage + 1
-                        break
-                    default:
-                        break
-                }
+        let usingImage = 1;
+        function newImage() {
+            image = document.getElementById("image")
+            switch (usingImage) {
+                case 1:
+                    image.src = "./images/kangaroo.jpg"
+                    usingImage = usingImage + 1
+                    break
+                case 2:
+                    image.src = "Images/alligator1.jpg"
+                    usingImage = usingImage + 1
+                    break
+                case 3:
+                    image.src = "Images/turtle1.jpg"
+                    usingImage = usingImage + 1
+                    break
+                default:
+                    break
             }
+        }
     </script>
 
 
